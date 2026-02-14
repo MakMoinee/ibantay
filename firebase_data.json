@@ -1,0 +1,37 @@
+{
+  "latest_reading": {
+    "altitude": 161.3,
+    "gps_valid": true,
+    "heart_rate": 300,
+    "latitude": 7.905299833,
+    "longitude": 125.075700833,
+    "satellites": 4,
+    "spo2": 94,
+    "temperature": -127,
+    "timestamp": 562413
+  },
+  "sensor_data": {
+    "536454": {
+      "altitude": 114.2,
+      "gps_valid": true,
+      "heart_rate": 214,
+      "latitude": 7.905289,
+      "longitude": 125.075535667,
+      "satellites": 4,
+      "spo2": 77,
+      "temperature": -127,
+      "timestamp": 536455
+    },
+    "562321": {
+      "altitude": 161.3,
+      "gps_valid": true,
+      "heart_rate": 300,
+      "latitude": 7.905299833,
+      "longitude": 125.075700833,
+      "satellites": 4,
+      "spo2": 94,
+      "temperature": -127,
+      "timestamp": 562322
+    }
+  }
+}
