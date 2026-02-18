@@ -13,37 +13,33 @@
             android:id="@+id/firstCard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:background="@color/black"
+            android:layout_margin="12dp"
             app:cardCornerRadius="15dp"
             app:cardElevation="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/holo_blue_dark"
                 android:padding="10dp">
 
-                <fragment
-                    android:id="@+id/fragment"
-                    android:name="androidx.navigation.fragment.NavHostFragment"
+                <TextView
+                    android:id="@+id/lblTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/sans_extra_bold"
+                    android:text="Heart Rate Records:"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="80dp"
-                    app:defaultNavHost="true"
-                    app:navGraph="@navigation/main_navigation" />
-
-
-                <com.google.android.material.bottomnavigation.BottomNavigationView
-                    android:id="@+id/bottomNav"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    app:itemTextAppearanceActiveBoldEnabled="true"
-                    app:menu="@menu/menu_bottom" />
-
+                    android:layout_below="@+id/lblTitle"
+                    android:layout_marginTop="20dp"
+                    android:padding="10dp" />
             </RelativeLayout>
-
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
