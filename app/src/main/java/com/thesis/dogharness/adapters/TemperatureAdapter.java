@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +33,8 @@ public class TemperatureAdapter extends RecyclerView.Adapter<TemperatureAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull TemperatureAdapter.ViewHolder holder, int position) {
-
+        SensorReadings readings = sensorReadingsList.get(position);
+        holder.txtTemp.setText(readings.getTemperature().toString());
     }
 
     @Override
@@ -41,8 +43,12 @@ public class TemperatureAdapter extends RecyclerView.Adapter<TemperatureAdapter.
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView txtTemp;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            txtTemp = itemView.findViewById(R.id.txtTemp);
         }
     }
 }
