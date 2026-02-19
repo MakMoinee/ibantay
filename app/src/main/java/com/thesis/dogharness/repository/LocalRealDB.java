@@ -26,6 +26,22 @@ public class LocalRealDB extends RealtimeDbRequest {
 
     }
 
+    public void getLatestData(ValueEventListener listener) {
+        dbRef = this.getDbRef();
+        RealtimeDBBody body = new RealtimeDBBody.RealtimeDbBodyBuilder()
+                .setChildName("latest_reading")
+                .build();
+
+        dbRef.child(body.getChildName()).orderByKey().addValueEventListener(listener);
+
+    }
+
+    /** Returns the DatabaseReference for "latest_reading" so callers can add/remove listeners. */
+    public DatabaseReference getLatestReadingRef() {
+        dbRef = this.getDbRef();
+        return dbRef.child("latest_reading");
+    }
+
     public void deleteSensor(DefaultBaseListener listener) {
         dbRef = this.getDbRef();
         DatabaseReference myRef = dbRef.child("sensor_data");

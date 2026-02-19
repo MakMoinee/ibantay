@@ -42,7 +42,6 @@ public class HomeFragment extends Fragment {
         homeList = new ArrayList<>();
         homeList.add("Monitoring");
         homeList.add("Locate");
-        homeList.add("Notifications");
 
         adapter = new HomeAdapter(requireContext(), homeList, new HomeEventListener() {
             @Override

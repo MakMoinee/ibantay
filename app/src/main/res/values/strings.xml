@@ -11,4 +11,12 @@
 
     <!--   Strings for dialog_set_notif-->
     <string name="set_notif_title">Set Notifications</string>
+
+    <!-- Heart rate monitor service & notifications -->
+    <string name="notification_channel_heart_rate_name">Heart rate alerts</string>
+    <string name="notification_channel_heart_rate_desc">Alerts when your dog\'s heart rate is above the set limit.</string>
+    <string name="notification_foreground_title">iBantay monitoring</string>
+    <string name="notification_foreground_text">Monitoring heart rate…</string>
+    <string name="notification_heart_rate_alert_title">High heart rate</string>
+    <string name="notification_heart_rate_alert_text">Heart rate (%1$d bpm) is above your set limit (%2$d bpm).</string>
 </resources>

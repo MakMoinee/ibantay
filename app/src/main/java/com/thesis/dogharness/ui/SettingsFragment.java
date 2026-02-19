@@ -1,6 +1,8 @@
 package com.thesis.dogharness.ui;
 
+import android.content.Intent;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ import com.thesis.dogharness.databinding.FragmentSettingsBinding;
 import com.thesis.dogharness.interfaces.IBantayEventListener;
 import com.thesis.dogharness.interfaces.SettingsEventListener;
 import com.thesis.dogharness.models.LocalSettings;
+import com.thesis.dogharness.service.HeartRateMonitorService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -99,6 +102,7 @@ public class SettingsFragment extends Fragment {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(requireContext());
         dialogSetNotifBinding = DialogSetNotifBinding.inflate(LayoutInflater.from(requireContext()), null, false);
         int isTurnOnNotif = new CustomPref(requireContext()).getIntItem("isTurnOn");
+        isTurnOn = (isTurnOnNotif > 0);
         if (isTurnOnNotif > 0) {
             dialogSetNotifBinding.btnTurnOn.setChecked(true);
         } else {
@@ -118,6 +122,16 @@ public class SettingsFragment extends Fragment {
             Map<String, Object> mMap = new HashMap<>();
             mMap.put("isTurnOn", isTurnOn ? 1 : 0);
             new CustomPref(requireContext()).storeData(mMap);
+            if (isTurnOn) {
+                Intent serviceIntent = new Intent(requireContext(), HeartRateMonitorService.class);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    requireContext().startForegroundService(serviceIntent);
+                } else {
+                    requireContext().startService(serviceIntent);
+                }
+            } else {
+                requireContext().stopService(new Intent(requireContext(), HeartRateMonitorService.class));
+            }
             Toast.makeText(requireContext(), "Successfully Set Notification", Toast.LENGTH_SHORT).show();
             alertDialogNotif.dismiss();
         });
