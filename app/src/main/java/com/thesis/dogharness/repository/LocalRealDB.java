@@ -1,5 +1,7 @@
 package com.thesis.dogharness.repository;
 
+import com.github.MakMoinee.library.interfaces.DefaultBaseListener;
+import com.github.MakMoinee.library.interfaces.RealtimeDbListener;
 import com.github.MakMoinee.library.models.RealtimeDBBody;
 import com.github.MakMoinee.library.services.RealtimeDbRequest;
 import com.google.firebase.database.ChildEventListener;
@@ -9,6 +11,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LocalRealDB extends RealtimeDbRequest {
 
     DatabaseReference dbRef;
+
     public LocalRealDB() {
         super();
     }
@@ -21,5 +24,19 @@ public class LocalRealDB extends RealtimeDbRequest {
 
         dbRef.child(body.getChildName()).orderByKey().addValueEventListener(listener);
 
+    }
+
+    public void deleteSensor(DefaultBaseListener listener) {
+        dbRef = this.getDbRef();
+        DatabaseReference myRef = dbRef.child("sensor_data");
+
+        myRef.removeValue()
+                .addOnSuccessListener(aVoid -> {
+                    listener.onSuccess("success");
+                })
+                .addOnFailureListener(e -> {
+                    listener.onError(new Error(e.getMessage()));
+                });
+        
     }
 }

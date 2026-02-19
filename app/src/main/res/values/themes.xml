@@ -12,4 +12,9 @@
         <item name="colorPrimary">#000000</item>
         <item name="colorAccent">#000000</item>
     </style>
+
+    <style name="CustomStyleRed" parent="Theme.Design.Light">
+        <item name="colorPrimary">#FB0000</item>
+        <item name="colorAccent">#FB0000</item>
+    </style>
 </resources>

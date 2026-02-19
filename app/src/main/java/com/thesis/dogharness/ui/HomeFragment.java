@@ -1,6 +1,7 @@
 package com.thesis.dogharness.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.thesis.dogharness.HeartRateActivity;
 import com.thesis.dogharness.adapters.HomeAdapter;
 import com.thesis.dogharness.databinding.FragmentHomeBinding;
 import com.thesis.dogharness.interfaces.HomeEventListener;
@@ -35,6 +37,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void createHomeList() {
+        homeList = new ArrayList<>();
         homeList.add("Heart Rate");
         homeList.add("Temperature");
 
@@ -48,11 +51,21 @@ public class HomeFragment extends Fragment {
                 openMenuIntent(option);
             }
         });
-        binding.myRecycler.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
+        binding.myRecycler.setLayoutManager(new GridLayoutManager(requireContext(), 2));
         binding.myRecycler.setAdapter(adapter);
     }
 
     private void openMenuIntent(String option) {
+        Intent intent = null;
+        switch (option) {
+            case "Heart Rate":
+                intent = new Intent(requireContext(), HeartRateActivity.class);
+                break;
+        }
+
+        if (intent != null) {
+            requireContext().startActivity(intent);
+        }
 
     }
 
@@ -64,5 +77,10 @@ public class HomeFragment extends Fragment {
         if (context instanceof IBantayEventListener) {
             listener = (IBantayEventListener) context;
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 }
