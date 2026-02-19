@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.thesis.dogharness.HeartRateActivity;
+import com.thesis.dogharness.LocateActivity;
+import com.thesis.dogharness.TemperatureActivity;
 import com.thesis.dogharness.adapters.HomeAdapter;
 import com.thesis.dogharness.databinding.FragmentHomeBinding;
 import com.thesis.dogharness.interfaces.HomeEventListener;
@@ -40,6 +42,7 @@ public class HomeFragment extends Fragment {
         homeList = new ArrayList<>();
         homeList.add("Heart Rate");
         homeList.add("Temperature");
+        homeList.add("Locate");
 
         adapter = new HomeAdapter(requireContext(), homeList, new HomeEventListener() {
             @Override
@@ -60,6 +63,12 @@ public class HomeFragment extends Fragment {
         switch (option) {
             case "Heart Rate":
                 intent = new Intent(requireContext(), HeartRateActivity.class);
+                break;
+            case "Temperature":
+                intent = new Intent(requireContext(), TemperatureActivity.class);
+                break;
+            case "Locate":
+                intent = new Intent(requireContext(), LocateActivity.class);
                 break;
         }
 
