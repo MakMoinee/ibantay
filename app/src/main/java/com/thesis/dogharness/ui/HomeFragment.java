@@ -40,8 +40,7 @@ public class HomeFragment extends Fragment {
 
     private void createHomeList() {
         homeList = new ArrayList<>();
-        homeList.add("Heart Rate");
-        homeList.add("Temperature");
+        homeList.add("Monitoring");
         homeList.add("Locate");
         homeList.add("Notifications");
 
@@ -55,14 +54,14 @@ public class HomeFragment extends Fragment {
                 openMenuIntent(option);
             }
         });
-        binding.myRecycler.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+        binding.myRecycler.setLayoutManager(new GridLayoutManager(requireContext(), 1));
         binding.myRecycler.setAdapter(adapter);
     }
 
     private void openMenuIntent(String option) {
         Intent intent = null;
         switch (option) {
-            case "Heart Rate":
+            case "Monitoring":
                 intent = new Intent(requireContext(), HeartRateActivity.class);
                 break;
             case "Temperature":

@@ -39,7 +39,7 @@
                 android:id="@+id/txtBPM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="17dp"
                 android:layout_toRightOf="@+id/lblBpm"
                 android:text="Sample"
                 android:textColor="@color/black"
@@ -63,9 +63,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lblBpm"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/lblPulse"
+                android:text="Sample"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/lblTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lblPulse"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/imgLogo"
+                android:fontFamily="@font/sans_extra_bold"
+                android:text="Temp:"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lblPulse"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
-                android:layout_toRightOf="@+id/lblPulse"
+                android:layout_toRightOf="@+id/lblTemp"
                 android:text="Sample"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -78,6 +103,8 @@
                 android:text="Sample"
                 android:textColor="@color/black"
                 android:textSize="9sp" />
+
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

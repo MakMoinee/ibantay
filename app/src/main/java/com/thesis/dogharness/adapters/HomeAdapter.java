@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,13 +30,25 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     @NonNull
     @Override
     public HomeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(mContext).inflate(R.layout.item_home, null, false);
+        View mView = LayoutInflater.from(mContext).inflate(R.layout.item_home, parent, false);
         return new ViewHolder(mView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HomeAdapter.ViewHolder holder, int position) {
         String menuRawText = menuList.get(position);
+        switch (menuRawText) {
+            case "Monitoring":
+                holder.imgMenu.setImageResource(R.drawable.ic_monitor);
+                break;
+            case "Notifications":
+                holder.imgMenu.setImageResource(R.drawable.ic_notif_dark);
+                break;
+
+            case "Locate":
+                holder.imgMenu.setImageResource(R.drawable.ic_location);
+                break;
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,10 +65,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView menuText;
+        ImageView imgMenu;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             menuText = itemView.findViewById(R.id.txtMenu);
+            imgMenu = itemView.findViewById(R.id.imgMenu);
         }
     }
 }

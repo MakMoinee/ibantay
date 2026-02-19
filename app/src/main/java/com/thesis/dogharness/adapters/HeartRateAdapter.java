@@ -39,6 +39,7 @@ public class HeartRateAdapter extends RecyclerView.Adapter<HeartRateAdapter.View
         SensorReadings readings = sensorReadingsList.get(position);
         holder.txtBPM.setText(String.format("%d", readings.getHeart_rate()));
         holder.txtPulse.setText(String.format("%d", readings.getSpo2()));
+        holder.txtTemp.setText(String.format("%.2f", readings.getTemperature()));
         Integer raw = readings.getTimestamp();
         if (raw == null || raw == 0) {
             holder.txtDate.setText("—");
@@ -57,12 +58,14 @@ public class HeartRateAdapter extends RecyclerView.Adapter<HeartRateAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtBPM;
         TextView txtPulse;
+        TextView txtTemp;
         TextView txtDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtBPM = itemView.findViewById(R.id.txtBPM);
             txtPulse = itemView.findViewById(R.id.txtPulse);
+            txtTemp = itemView.findViewById(R.id.txtTemp);
             txtDate = itemView.findViewById(R.id.txtDate);
         }
     }

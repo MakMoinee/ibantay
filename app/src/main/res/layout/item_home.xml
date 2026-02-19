@@ -8,20 +8,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        app:cardBackgroundColor="@android:color/holo_blue_bright"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="15dp"
         app:cardElevation="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:padding="15dp">
 
+            <ImageView
+                android:id="@+id/imgMenu"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_heart" />
+
             <TextView
-                android:layout_centerHorizontal="true"
                 android:id="@+id/txtMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgMenu"
                 android:fontFamily="@font/sans_extra_bold"
                 android:text="Sample"
                 android:textColor="@android:color/black"
