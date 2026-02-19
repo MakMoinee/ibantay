@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">iBantay</string>
+
+    <!--   Strings for dialog_set_heart_rate-->
+    <string name="set_heart_rate_title">Set Valid Heart Rate</string>
+    <string name="hint_heart_rate_input">Enter Valid Heart Rate</string>
+
+    <!--   Strings for dialog_set_temperature-->
+    <string name="set_temperature_title">Set Valid Temperature</string>
+    <string name="hint_temperature_input">Enter Valid Temperature</string>
+
+    <!--   Strings for dialog_set_notif-->
+    <string name="set_notif_title">Set Notifications</string>
 </resources>

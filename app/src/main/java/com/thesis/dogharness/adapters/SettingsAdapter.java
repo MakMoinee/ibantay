@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.thesis.dogharness.R;
+import com.thesis.dogharness.interfaces.SettingsEventListener;
 import com.thesis.dogharness.models.LocalSettings;
 
 import java.util.List;
@@ -18,10 +19,12 @@ import java.util.List;
 public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHolder> {
     Context mContext;
     List<LocalSettings> settingsList;
+    SettingsEventListener listener;
 
-    public SettingsAdapter(Context mContext, List<LocalSettings> settingsList) {
+    public SettingsAdapter(Context mContext, List<LocalSettings> settingsList, SettingsEventListener listener) {
         this.mContext = mContext;
         this.settingsList = settingsList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -37,7 +40,15 @@ public class SettingsAdapter extends RecyclerView.Adapter<SettingsAdapter.ViewHo
         holder.lblSettingName.setText(settings.getSettingName());
         holder.imgLogo.setImageResource(settings.getImageResource());
         holder.txtData.setText("");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.clickOption(settings.getSettingName());
+            }
+        });
     }
+
+
 
     @Override
     public int getItemCount() {
