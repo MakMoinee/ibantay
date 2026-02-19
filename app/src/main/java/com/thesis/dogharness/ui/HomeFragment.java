@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment {
         homeList.add("Heart Rate");
         homeList.add("Temperature");
         homeList.add("Locate");
+        homeList.add("Notifications");
 
         adapter = new HomeAdapter(requireContext(), homeList, new HomeEventListener() {
             @Override
